@@ -1,0 +1,20 @@
+#container {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    text-align: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.botones {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+    align-content: center;
+}
+
+button {
+    width: 332px;
+    height: 67px;
+}
