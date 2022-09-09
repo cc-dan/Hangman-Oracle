@@ -1,20 +1,62 @@
-#container {
+.pantalla {
     display: flex;
+    height: 90vh;
+}
+
+#menu-principal {
     flex-flow: column wrap;
     align-content: center;
     text-align: center;
-    height: 100vh;
     justify-content: center;
+}
+#menu-principal div { /* Botones */
+    flex-flow: column wrap;
+    align-content: center;
+}
+
+#juego {
+    display: none;
+
+    flex-flow: column wrap;
+    width: 90vw;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+#juego > :first-child { /* Canvas */
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+#agregar-palabra {
+    display: none;
+}
+
+#logo-alura {
+    position: absolute;
+    margin-left: 16px;
+    margin-top: 24px;
 }
 
 .botones {
     display: flex;
-    flex-flow: column wrap;
     gap: 10px;
-    align-content: center;
+    justify-content: center;
+}
+.botones > :first-child {
+    color: blue;
 }
 
 button {
-    width: 332px;
+    width: 280px;
     height: 67px;
+}
+
+canvas {
+    border: solid 1px;
+    margin-bottom: 20px;
 }

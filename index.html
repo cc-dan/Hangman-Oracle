@@ -9,12 +9,25 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="container">
+    <img src="assets/alura-logo.png" alt="logo de alura" id="logo-alura">
+    <div class="pantalla" id="menu-principal">
         <h1>El Juego del Ahorcado</h1>
         <div class="botones">
-            <button>Jugar</button>
+            <button onclick="cambiar('juego')">Jugar</button>
             <button>Añadir nueva palabra</button>
         </div>
     </div>
+    <div class="pantalla" id="juego">
+        <div>
+            <canvas width="280" height="350"></canvas>
+            <div class="botones">
+                <button onclick="resetear()">Nuevo juego</button>
+                <button onclick="cambiar('menu-principal')">Desistir</button>
+                <button onclick="dibujar()">nivel</button>
+            </div>
+        </div>
+    </div>
+    <div class="pantalla" id="agregar-palabra"></div>
+    <script src="app.js"></script>
 </body>
 </html>
