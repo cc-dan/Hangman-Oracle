@@ -5,7 +5,8 @@ canvas_2d = canvas.getContext('2d');
 stickman_x = canvas.width/2;
 stickman_y = 72;
 nivel = 0;
-palabra = "naranja";
+palabras = ["naranja", "celular", "responsive", "lampara"];
+palabra = palabras[Math.ceil(Math.random() * palabras.length-1)];
 adivinadas = [];
 equivocadas = [];
 permitidas = 'qwertyuiopasdfghjklñzxcvbnm';
@@ -18,7 +19,9 @@ document.onkeypress = function(k) {
             document.getElementById('palabra').innerHTML = palabra.split('').map(function(letra) { 
                 if (adivinadas.includes(letra)) { return letra } else { return '_' } }).join(' ');
         
-            if (adivinadas.length == palabra.length) { termino = true; }
+            if (palabra.split('').every(letra => adivinadas.includes(letra))) {
+                termino = true;
+            }
         } else {
             if (!(equivocadas.includes(k.key)) && permitidas.includes(k.key)) {
                 equivocadas.push(k.key);
