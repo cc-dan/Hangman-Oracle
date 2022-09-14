@@ -19,11 +19,13 @@
     </div>
     <div class="pantalla" id="juego">
         <div>
-            <canvas width="280" height="350"></canvas>
+            <canvas width="280" height="350" id="horca"></canvas>
+            <!--<canvas width="800" height="128" id="subrayada"></canvas>-->
+            <p id="palabra">_ _ _ _ _ _ _ _ _ _ _ _</p>
+            <p id="equivocadas"></p>
             <div class="botones">
                 <button onclick="resetear()">Nuevo juego</button>
                 <button onclick="cambiar('menu-principal')">Desistir</button>
-                <button onclick="dibujar()">nivel</button>
             </div>
         </div>
     </div>
