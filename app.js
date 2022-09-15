@@ -69,7 +69,7 @@ function dibujar() {
     if (!(nivel > 0)) {
         horca(stickman_x - 200, 0);
         document.getElementById('palabra').innerHTML = palabra.split('').map(letra => '_').join(' ');
-        document.getElementById('equivocadas').innerHTML = "";
+        document.getElementById('equivocadas').innerHTML = " ";
     } else {
         canvas_2d.moveTo(stickman_x, stickman_y);
 
@@ -110,11 +110,26 @@ function dibujar() {
     nivel++;
 }
 
+function agregar_palabra() {
+    let nueva = document.querySelector('input').value;
+    if (nueva != "" && !palabras.includes(nueva) && nueva.split('').every(letra => permitidas.includes(letra))) {
+        palabras.push(nueva);
+
+        document.getElementById('output').innerHTML = "¡Palabra agregada!";
+    } else {
+        alert("Palabra no permitida");
+        document.getElementById('output').innerHTML = "";
+    }
+
+    document.querySelector('input').value = "";
+}
+
 function resetear() {
     canvas_2d.clearRect(0, 0, canvas.width, canvas.height);
     nivel = 0;
     adivinadas = [];
     equivocadas = [];
     termino = false;
+    palabra = palabras[Math.ceil(Math.random() * palabras.length-1)]
     dibujar();
 }

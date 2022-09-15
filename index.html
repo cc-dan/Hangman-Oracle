@@ -14,7 +14,7 @@
         <h1>El Juego del Ahorcado</h1>
         <div class="botones">
             <button onclick="cambiar('juego')">Jugar</button>
-            <button>Añadir nueva palabra</button>
+            <button onclick="cambiar('agregar-palabra')">Añadir nueva palabra</button>
         </div>
     </div>
     <div class="pantalla" id="juego">
@@ -29,7 +29,13 @@
             </div>
         </div>
     </div>
-    <div class="pantalla" id="agregar-palabra"></div>
+    <div class="pantalla" id="agregar-palabra">
+        <h1>Agregar palabra</h1>
+        <input type="text"></input>
+        <p id="output"></p>
+        <button onclick="agregar_palabra()">Agregar</button>
+        <button onclick="cambiar('menu-principal')">Volver</button>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
