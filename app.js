@@ -5,7 +5,7 @@ canvas_2d = canvas.getContext('2d');
 stickman_x = canvas.width/2;
 stickman_y = 72;
 nivel = 0;
-palabras = ["naranja", "celular", "responsive", "lampara"];
+palabras = ["naranja", "celular", "embarcacion", "lampara"];
 palabra = palabras[Math.ceil(Math.random() * palabras.length-1)];
 adivinadas = [];
 equivocadas = [];
@@ -14,18 +14,20 @@ termino = false;
 
 document.onkeypress = function(k) {
     if (pantalla_actual == 'juego' && !termino) {
-        if (palabra.includes(k.key)) {
-            adivinadas.push(k.key);
+        let tecla = k.key.toLowerCase();
+
+        if (palabra.includes(tecla)) {
+            adivinadas.push(tecla);
             document.getElementById('palabra').innerHTML = palabra.split('').map(function(letra) { 
-                if (adivinadas.includes(letra)) { return letra } else { return '_' } }).join(' ');
+                if (adivinadas.includes(letra)) { return letra } else { return '_' } }).join(' ').toUpperCase();
         
             if (palabra.split('').every(letra => adivinadas.includes(letra))) {
                 termino = true;
             }
         } else {
-            if (!(equivocadas.includes(k.key)) && permitidas.includes(k.key)) {
-                equivocadas.push(k.key);
-                document.getElementById('equivocadas').innerHTML = equivocadas.join(' ');
+            if (!(equivocadas.includes(tecla)) && permitidas.includes(tecla)) {
+                equivocadas.push(tecla);
+                document.getElementById('equivocadas').innerHTML = equivocadas.join(' ').toUpperCase();
                 dibujar();
             }
         }
@@ -43,8 +45,7 @@ function cambiar(pantalla) {
     }
 
     if (pantalla == 'juego') {
-        dibujar();
-    } else {
+        palabra = palabras[Math.ceil(Math.random() * palabras.length-1)];
         resetear();
     }
 
