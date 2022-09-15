@@ -44,6 +44,9 @@
     flex-flow: column wrap;
     align-items: center;
 }
+#juego p {
+    height: 1em;
+}
 #equivocadas {
     color: red;
 }
@@ -71,14 +74,20 @@
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+    border-color: #0A3871;
+    background: white;
+    color: #0A3871;
 }
 .botones > :first-child {
-    color: blue;
+    background: #0A3871;
+    color: white;
 }
 
 button {
     width: 280px;
     height: 67px;
+    border-radius: 24px;
+    border-style: solid;
 }
 
 p {
@@ -89,4 +98,10 @@ p {
 #subrayada {
     width: 100%;
     margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 500px) {
+    p {
+        font-size: 1.7em;
+    }
 }
