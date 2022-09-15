@@ -23,6 +23,7 @@ document.onkeypress = function(k) {
         
             if (palabra.split('').every(letra => adivinadas.includes(letra))) {
                 termino = true;
+                document.getElementById('resultado').innerHTML = "¡Ganaste! ¡Felicidades!";
             }
         } else {
             if (!(equivocadas.includes(tecla)) && permitidas.includes(tecla)) {
@@ -31,7 +32,6 @@ document.onkeypress = function(k) {
                 dibujar();
             }
         }
-        console.log(adivinadas);
     }
 }
 
@@ -103,6 +103,7 @@ function dibujar() {
                 canvas_2d.moveTo(stickman_x, stickman_y + 140);
                 canvas_2d.lineTo(stickman_x+16, stickman_y + 220);   
                 termino = true;
+                document.getElementById('resultado').innerHTML = "Game Over";
             break;
         }
     }
@@ -132,5 +133,6 @@ function resetear() {
     equivocadas = [];
     termino = false;
     palabra = palabras[Math.ceil(Math.random() * palabras.length-1)]
+    document.getElementById('resultado').innerHTML = "";
     dibujar();
 }
